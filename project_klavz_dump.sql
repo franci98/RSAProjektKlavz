@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Gostitelj: 127.0.0.1
--- Čas nastanka: 01. jun 2016 ob 09.36
--- Različica strežnika: 10.1.13-MariaDB
--- Različica PHP: 7.0.6
+-- Čas nastanka: 05. jun 2016 ob 13.21
+-- Različica strežnika: 10.1.9-MariaDB
+-- Različica PHP: 5.6.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -48,7 +48,9 @@ CREATE TABLE `appartments` (
 --
 
 INSERT INTO `appartments` (`ID`, `user_ID`, `city_ID`, `location_ID`, `category_ID`, `title`, `description`, `bedrooms`, `bathrooms`, `persons`, `ppd`, `year_made`, `address`, `wifi_available`) VALUES
-(1, 1, 155, 1, 1, 'Testni', 'lep', 2, 2, 5, 233, 1990, 'Koperska ulica', 1);
+(1, 1, 155, 1, 1, 'Testni', 'lep', 2, 2, 5, 233, 1990, 'Koperska ulica', 1),
+(2, 1, 408, 2, 1, 'Planinski raj', 'S prelepim razgledom na bližnje gore.', 2, 1, 4, 230, 2007, 'Bele Vode 37', 1),
+(3, 1, 295, 1, 1, 'Samo korak od morja', 'Z  zasebno obalo tik pred vašim nosom.', 1, 1, 2, 400, 2003, 'Obalna cesta 45', 0);
 
 -- --------------------------------------------------------
 
@@ -731,7 +733,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT tabele `appartments`
 --
 ALTER TABLE `appartments`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT tabele `categories`
 --
