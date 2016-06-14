@@ -30,7 +30,7 @@ include_once 'header.php';
               Leto izgradnje
               <input id="price_input" name="year_made" type="number" required />
             </div>
-            <div id="internet-div"style="text-align:center;margin-left: 20px;clear:both;">
+            <div id="internet-div" style="text-align:center;margin-left: 20px;clear:both;">
                 Dostop do interneta:
                 <span class="input-group-addon" >
                     <input type="checkbox" name="wi-fi" value="true">
