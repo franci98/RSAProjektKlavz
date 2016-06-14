@@ -23,23 +23,43 @@ if(isset($_GET['id'])){
         <div class="img-div">
             <?php
             $query = "SELECT *
-            FROM images WHERE appartment_id=$appartment_id;";
+            FROM images WHERE appartment_id=$appartment_id LIMIT 1;";
             $result2 = mysqli_query($link, $query);
+            while ($row2 = mysqli_fetch_array($result2)) {
+            
+            echo '<img src="images/'.$row2['url'].'" alt="'.$row2['title'].'"';
+            }
+            if (isset($_SESSION['ID'])){
+            if($_SESSION['ID']==$row['user_ID']){
+              ?> 
+                <form action="upload_image.php" method="post" enctype="multipart/form-data">
+                    Izberite sliko apartmaja:
+                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
+                    <input class="form-control" type="text" name="name" >
+                    <input class="form-control" type="text" name="short_desc" placeholder="Kratek opis">
+                    <input type="hidden" name="appartment_id" value="<?php echo $appartment_id ?>" >
+                    <input type="submit" value="Naloži" name="submit">
+                </form>
+              <?php 
+            }}
             ?>
         </div>
+        <hr>
         <div id="desc">
             <?php
             echo $row['description'];
             ?>
         </div>
+        <hr>
         <div id="data">
-            <ul>
+            <h1>Splošni podatki:</h1>
+            <ul class="list-group" style="width: 30%;">
             <?php
-            echo "<li> Leto: ".$row['year_made']."</li>";
-            echo "<li> Spalnice: ".$row['bedrooms']."</li>";
-            echo "<li> Kopalnic: ".$row['bathrooms']."</li>";
-            echo "<li> Osebe: ".$row['persons']."</li>";
-            echo "<li> Cena: ".$row['ppd']."€</li>";
+            echo '<li class="list-group-item" > Leto: <span class="badge">'.$row['year_made'].'</span></li>';
+            echo '<li class="list-group-item" > Spalnice: <span class="badge">'.$row['bedrooms'].'</span></li>';
+            echo '<li class="list-group-item" > Kopalnic: <span class="badge">'.$row['bathrooms'].'</span></li>';
+            echo '<li class="list-group-item" > Osebe: <span class="badge">'.$row['persons'].'</span></li>';
+            echo '<li class="list-group-item" > Cena: <span class="badge">'.$row['ppd'].'€</span></li>';
             ?>
             </ul>
         </div>

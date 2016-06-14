@@ -1,10 +1,11 @@
 #product_div{
     width: 80%;
-    border: solid black 1px;
+    height: 100%;
+    border: solid black 0px;
     float: left;
 }
 #product_div div{
-    border: solid black 1px;
+    border: solid black 0px;
     margin: 2%;
     padding: 2%;
 }
@@ -13,3 +14,12 @@
     background-color: #66ff66;
 }
 
+img{
+    width: 100%;
+}
+hr{
+    color:#00c56f;
+}
+ul li{
+    font-weight: bold;
+}

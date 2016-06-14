@@ -8,8 +8,8 @@ include_once 'header.php';
 <div id="products_list">
     <h1>Najboljši apartmaji</h1>
     <?php
-        $query = "SELECT *
-                FROM appartments;";
+        $query = "SELECT a.*
+                FROM appartments a ;";
         $result = mysqli_query($link, $query);
         while ($row = mysqli_fetch_array($result)) {
             ?>
@@ -19,7 +19,18 @@ include_once 'header.php';
             <p>Število oseb: <?php echo $row['persons']; ?></p>
             <p><?php echo $row['description']; ?></p>
         </div>
-        <div class="img_div"></div>
+        <div class="col-xs-6 col-md-3 thumbnail">
+            
+                <?php
+                $query = "SELECT *
+            FROM images WHERE appartment_id=".$row['ID']." LIMIT 1;";
+            $result2 = mysqli_query($link, $query);
+            while ($row2 = mysqli_fetch_array($result2)) {
+            
+            echo '<img src="images/'.$row2['url'].'" alt="'.$row2['title'].'"';
+            }
+                ?>
+        </div>
     </div>
     <?php
         }
