@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Gostitelj: 127.0.0.1
--- Čas nastanka: 15. jun 2016 ob 09.38
--- Različica strežnika: 10.1.13-MariaDB
--- Različica PHP: 7.0.6
+-- Čas nastanka: 15. jun 2016 ob 11.08
+-- Različica strežnika: 10.1.10-MariaDB
+-- Različica PHP: 5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -69,7 +69,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`ID`, `title`, `description`) VALUES
-(1, 'Družinski', 'Apartmaji primerni za družine. Imajo vsaj eno otroško sobo. Ležijo v okolju primernem za otroke.');
+(1, 'Družinski', 'Apartmaji primerni za družine. Imajo vsaj eno otroško sobo. Ležijo v okolju primernem za otroke.'),
+(2, 'Za pare', 'Za 2 osebe. Z romantičnim pogledom.');
 
 -- --------------------------------------------------------
 
@@ -629,7 +630,8 @@ CREATE TABLE `locations` (
 
 INSERT INTO `locations` (`ID`, `title`, `description`) VALUES
 (1, 'Obala', 'Aparatma s pogledom na morje. '),
-(2, 'Podeželje', 'Apartmaji v umirjeni okolici, obdani z naravo.');
+(2, 'Podeželje', 'Apartmaji v umirjeni okolici, obdani z naravo.'),
+(3, 'Predmestje', 'Apartma v urbani okolici vendar s pridihom narave. Umirjen.');
 
 -- --------------------------------------------------------
 
@@ -762,7 +764,7 @@ ALTER TABLE `appartments`
 -- AUTO_INCREMENT tabele `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT tabele `cities`
 --
@@ -782,7 +784,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT tabele `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT tabele `rentals`
 --
