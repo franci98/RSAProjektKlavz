@@ -9,7 +9,7 @@ include_once 'header.php';
                           FROM categories;";
                 $result = mysqli_query($link, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<tr><td>'.$row['title'].'</td><td>'.$row['description'].'</td><td><a class="btn btn-default" href="delete.php?category_id='.$row['ID'].'" >Izbriši</a></td></tr>';
+                    echo '<tr><td>'.$row['title'].'</td><td>'.$row['description'].'</td><td><a class="btn btn-default" href="delete.php?category_id='.$row['ID'].'" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td></tr>';
                 }
             ?>
 </table> 
@@ -31,7 +31,7 @@ include_once 'header.php';
                           FROM locations;";
                 $result = mysqli_query($link, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<tr><td>'.$row['title'].'</td><td>'.$row['description'].'</td><td><a class="btn btn-default" href="delete.php?location_id='.$row['ID'].'" >Izbriši</a></td></tr>';
+                    echo '<tr><td>'.$row['title'].'</td><td>'.$row['description'].'</td><td><a class="btn btn-default" href="delete.php?location_id='.$row['ID'].'" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td></tr>';
                 }
             ?>
 </table>
@@ -50,7 +50,7 @@ include_once 'header.php';
                           FROM users;";
                 $result = mysqli_query($link, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<tr><td>'.$row['first_name'].'</td><td>'.$row['last_name'].'</td><td>'.$row['email'].'</td><td><a class="btn btn-danger" href="delete.php?user_id='.$row['ID'].'" >Izbriši</a></td></tr>';
+                    echo '<tr><td>'.$row['first_name'].'</td><td>'.$row['last_name'].'</td><td>'.$row['email'].'</td><td><a class="btn btn-danger" href="delete.php?user_id='.$row['ID'].'" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td></tr>';
                 }
             ?>
 </table> 
