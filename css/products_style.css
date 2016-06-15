@@ -1,6 +1,6 @@
 #products_list{
     width: 80%;
-    border: solid black 2px;
+    border: solid black 0px;
     float: left;
 }
 #products_list *{
@@ -12,6 +12,7 @@
     padding: 2%;
     margin-top: 2%;
     margin-bottom: 2%;
+    border-radius: 10px;
 }
 .product_info_div{
     display: inline-block;

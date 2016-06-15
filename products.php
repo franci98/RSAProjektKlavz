@@ -9,7 +9,13 @@ include_once 'header.php';
     <h1>Najboljši apartmaji</h1>
     <?php
         $query = "SELECT a.*
-                FROM appartments a ;";
+                FROM appartments a ";
+        if(isset($_GET['location_id'])){
+            $query = $query."WHERE a.location_id=".$_GET['location_id'];
+        }
+        if(isset($_GET['category_id'])){
+            $query = $query."WHERE a.category_id=".$_GET['category_id'];
+        }
         $result = mysqli_query($link, $query);
         while ($row = mysqli_fetch_array($result)) {
             ?>

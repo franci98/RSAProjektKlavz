@@ -1,0 +1,13 @@
+table, table td, th{
+    border: solid black 1px;
+    padding: 2%;
+}
+#admin_div{
+    float:left;
+}
+#admin_div a{
+    text-transform: uppercase;
+}
+form{
+    padding: 2%;
+}

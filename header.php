@@ -16,6 +16,7 @@ and open the template in the editor.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link type="text/css" rel="stylesheet" href="css/header_style.css" />
         <link type="text/css" rel="stylesheet" href="css/background_style.css" />
+        <link href='css/index_style.css' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
     </head>
     
@@ -24,11 +25,14 @@ and open the template in the editor.
             <div class="nav-menu">
               <ul>
                 <li class="current_page_item"><a href="index.php" title="Home">DOMOV</a></li>
-                <li class="page_item"><a href="products.php">IZDELKI</a></li>
+                <li class="page_item"><a href="products.php">APARTMAJI</a></li>
                     <?php
                       if(isset($_SESSION['ID'])){
-                          echo '<li class="page_item page-item-9"><a href="logout.php">Odjava ('.$_SESSION['username'].')</a></li>';
                           echo '<li class="page_item page-item-9"><a href="apartment_add.php">DODAJ APARTMA</a></li>';
+                          if(isset($_SESSION['admin'])){
+                              echo '<li class="page_item page-item-9"><a href="administration.php">ADMINISTRACIJA</a></li>';
+                          }
+                          echo '<li class="page_item page-item-9"><a href="logout.php">Odjava ('.$_SESSION['username'].')</a></li>';
                       }
                       else{
                           echo '<li class="page_item page-item-9"><a href="login.php">PRIJAVA</a></li>';
@@ -49,7 +53,7 @@ and open the template in the editor.
                           FROM categories;";
                 $result = mysqli_query($link, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<li>'.$row['title'].'</li>';
+                    echo '<li><a href=products.php?category_id="'.$row['ID'].'">'.$row['title'].'</a></li>';
                 }
             ?>
         </ul> 
@@ -64,7 +68,7 @@ and open the template in the editor.
                           FROM locations;";
                 $result = mysqli_query($link, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<li>'.$row['title'].'</li>';
+                    echo '<li><a href=products.php?location_id="'.$row['ID'].'">'.$row['title'].'</a></li>';
                 }
             ?>
         </ul> 

@@ -25,6 +25,9 @@ and open the template in the editor.
             $row = mysqli_fetch_array($result);
             $_SESSION['ID']=$row['ID'];
             $_SESSION['username']=$row['username'];
+            if($row['admin']==1){
+                $_SESSION['admin']=TRUE;
+            }
             header('Location: index.php');
         }
         else {
