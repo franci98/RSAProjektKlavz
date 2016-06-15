@@ -33,7 +33,7 @@ include_once 'header.php';
             $result2 = mysqli_query($link, $query);
             while ($row2 = mysqli_fetch_array($result2)) {
             
-            echo '<img style="width: 100%; height: 100%" src="images/'.$row2['url'].'" alt="'.$row2['title'].'">';
+            echo '<img src="images/'.$row2['url'].'" alt="'.$row2['title'].'">';
             }
                 ?>
         </div>
