@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Gostitelj: 127.0.0.1
--- Čas nastanka: 14. jun 2016 ob 20.22
--- Različica strežnika: 10.1.9-MariaDB
--- Različica PHP: 5.6.15
+-- Čas nastanka: 15. jun 2016 ob 09.38
+-- Različica strežnika: 10.1.13-MariaDB
+-- Različica PHP: 7.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -580,6 +580,14 @@ CREATE TABLE `comments` (
   `description` text COLLATE utf8_slovenian_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
 
+--
+-- Odloži podatke za tabelo `comments`
+--
+
+INSERT INTO `comments` (`ID`, `appartment_ID`, `user_ID`, `title`, `description`) VALUES
+(1, 1, 1, 'Test', 'Moj prvi komentar'),
+(2, 1, 9, 'Super apartma', 'Sem bival tu. Zelo zadovoljen.');
+
 -- --------------------------------------------------------
 
 --
@@ -599,7 +607,9 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`ID`, `appartment_ID`, `title`, `short_description`, `url`) VALUES
-(1, 3, 'Obalni apartma', 'Slika notranjosti apartmaja.', 'seaside-appartment.jpg');
+(1, 3, 'Obalni apartma', 'Slika notranjosti apartmaja.', 'seaside-appartment.jpg'),
+(2, 2, 'Planinski apartma', 'Pogled v apartma in bližnje gore.', '40677.jpg'),
+(3, 1, 'Apartma', 'Testni pogled', 'inside-barcelona-apartments.jpg');
 
 -- --------------------------------------------------------
 
@@ -633,9 +643,16 @@ CREATE TABLE `rentals` (
   `user_ID` bigint(20) UNSIGNED NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  `passwrd` varchar(100) COLLATE utf8_slovenian_ci NOT NULL,
+  `passwrd` varchar(100) COLLATE utf8_slovenian_ci DEFAULT NULL,
   `res_date` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_slovenian_ci;
+
+--
+-- Odloži podatke za tabelo `rentals`
+--
+
+INSERT INTO `rentals` (`ID`, `appartment_ID`, `user_ID`, `start_date`, `end_date`, `passwrd`, `res_date`) VALUES
+(1, 3, 1, '2016-06-16', '2016-06-30', NULL, '2016-06-15');
 
 -- --------------------------------------------------------
 
@@ -755,12 +772,12 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT tabele `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT tabele `images`
 --
 ALTER TABLE `images`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT tabele `locations`
 --
@@ -770,7 +787,7 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT tabele `rentals`
 --
 ALTER TABLE `rentals`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT tabele `users`
 --
