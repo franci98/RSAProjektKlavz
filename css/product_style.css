@@ -23,3 +23,14 @@ hr{
 ul li{
     font-weight: bold;
 }
+.comment{
+    margin: 0;
+    font-size: 110%;
+    font-weight: bold;
+}
+.liha{
+    background-color: #99ffff;
+}
+.soda{
+    background-color: #66ff66;
+}

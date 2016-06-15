@@ -63,6 +63,64 @@ if(isset($_GET['id'])){
             ?>
             </ul>
         </div>
+        <?php
+        if(isset($_SESSION['ID'])){
+        ?>
+        <div id="reserve">
+            <form method="post" action="reservation_add.php" style="width: 40%;">
+                <h1>Rezerviraj bivanje v apartmaju</h1>
+                <input type="date" class="form-control" name="start_date" placeholder="Začetni datum">
+                <input type="date" class="form-control" name="end_date" placeholder="Končni datum"><br />
+                <input type="hidden" name="appartment_id" value="<?php echo $appartment_id ?>">
+                <button type="submit" name="subm" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span> REZERVIRAJ
+                </button>
+            </form>
+        </div>
+           <?php
+        }
+        ?>
+        <div class="comments">
+            <h2>Komentarji</h2>
+            <?php
+        if(isset($_SESSION['ID'])){
+        ?>
+            <form action="comment_insert.php" method="post">
+                <input type="hidden" name="appartment_id" value="<?php echo $appartment_id; ?>" />
+                <input type="text" class="form-control" name="title" placeholder="Naslov komentarja">
+                <textarea name="comment" class="form-control"cols="5" rows="5" required="required"></textarea>
+                <button type="submit" name="subm" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> KOMENTIRAJ
+                </button>
+            </form>
+            <?php
+        }
+            $query = "SELECT *, c.id AS cid 
+              FROM comments c INNER JOIN
+                   users u ON c.user_id=u.id
+              WHERE c.appartment_id=$appartment_id";
+            $result = mysqli_query($link, $query);
+            $st = 1;
+            while ($row = mysqli_fetch_array($result)) {
+                //preverimo ali gre za sodo ali liho
+                //vrstico komentarja
+                if ($st%2==0) {
+                    echo '<div class="comment soda">';
+                }
+                else {
+                    echo '<div class="comment liha">';
+                }
+                echo '<span class="username"><b>'.
+                    $row['first_name'].' '.
+                    $row['last_name'].
+                    '</b></span> ';
+                echo '<hr/>';
+                echo $row['description'];
+                echo '</div>';
+                $st++;
+            }
+            ?>
+        </div>
     </div>
 <?php
     }
