@@ -16,5 +16,7 @@
 }
 .product_info_div{
     display: inline-block;
-    width: 50%
+    width: 50%;
+    font-size: 150%;
+    margin: 2%;
 }

@@ -29,6 +29,7 @@ and open the template in the editor.
                     <?php
                       if(isset($_SESSION['ID'])){
                           echo '<li class="page_item page-item-9"><a href="apartment_add.php">DODAJ APARTMA</a></li>';
+                          echo '<li class="page_item page-item-9"><a href="reservations.php">REZERVACIJE</a></li>';
                           if(isset($_SESSION['admin'])){
                               echo '<li class="page_item page-item-9"><a href="administration.php">ADMINISTRACIJA</a></li>';
                           }

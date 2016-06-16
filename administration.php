@@ -25,7 +25,7 @@ include_once 'header.php';
         
 ?>
 <h1>Lokacije</h1>
-<table><tr><th>Lokacije</th><th>Opis</th><th>Izbriši</th></tr>
+<table><tr><th>Lokacija</th><th>Opis</th><th>Izbriši</th></tr>
             <?php
             $query = "SELECT *
                           FROM locations;";

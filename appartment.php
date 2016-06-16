@@ -39,7 +39,8 @@ if(isset($_GET['id'])){
                     <input class="form-control" type="text" name="short_desc" placeholder="Kratek opis">
                     <input type="hidden" name="appartment_id" value="<?php echo $appartment_id ?>" >
                     <input type="submit" value="Naloži" name="submit">
-                </form>
+                </form><br />
+            <!--<p><a href="edit.php?id=<?php echo $appartment_id ?>" class="btn btn-info">UREDI</a></p>-->
               <?php 
             }}
             ?>
@@ -69,8 +70,8 @@ if(isset($_GET['id'])){
         <div id="reserve">
             <form method="post" action="reservation_add.php" style="width: 40%;">
                 <h1>Rezerviraj bivanje v apartmaju</h1>
-                <input type="date" class="form-control" name="start_date" placeholder="Začetni datum">
-                <input type="date" class="form-control" name="end_date" placeholder="Končni datum"><br />
+                <span class="input-group-addon" id="basic-addon1">Začetek bivanja</span><input type="date" class="form-control" name="start_date" placeholder="Začetni datum">
+                <span class="input-group-addon" id="basic-addon1">Konec bivanja</span><input type="date" class="form-control" name="end_date" placeholder="Končni datum"><br />
                 <input type="hidden" name="appartment_id" value="<?php echo $appartment_id ?>">
                 <button type="submit" name="subm" class="btn btn-default btn-lg">
                     <span class="glyphicon glyphicon-send" aria-hidden="true"></span> REZERVIRAJ

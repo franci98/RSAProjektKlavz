@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Gostitelj: 127.0.0.1
--- Čas nastanka: 15. jun 2016 ob 11.08
--- Različica strežnika: 10.1.10-MariaDB
--- Različica PHP: 5.6.19
+-- Čas nastanka: 16. jun 2016 ob 13.35
+-- Različica strežnika: 10.1.13-MariaDB
+-- Različica PHP: 7.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -50,7 +50,8 @@ CREATE TABLE `appartments` (
 INSERT INTO `appartments` (`ID`, `user_ID`, `city_ID`, `location_ID`, `category_ID`, `title`, `description`, `bedrooms`, `bathrooms`, `persons`, `ppd`, `year_made`, `address`, `wifi_available`) VALUES
 (1, 1, 155, 1, 1, 'Testni', 'lep', 2, 2, 5, 233, 1990, 'Koperska ulica', 1),
 (2, 1, 408, 2, 1, 'Planinski raj', 'S prelepim razgledom na bližnje gore.', 2, 1, 4, 230, 2007, 'Bele Vode 37', 1),
-(3, 1, 295, 1, 1, 'Samo korak od morja', 'Z  zasebno obalo tik pred vašim nosom.', 1, 1, 2, 400, 2003, 'Obalna cesta 45', 0);
+(3, 1, 295, 1, 1, 'Samo korak od morja', 'Z  zasebno obalo tik pred vašim nosom.', 1, 1, 2, 400, 2003, 'Obalna cesta 45', 0),
+(4, 9, 190, 3, 1, 'Predmestje  Ljubljane', 'Ugoden apartma. Zlasti za družine. Otroci imajo pred hišo veliko dvorišče. Igranje je tako zaščiteno pred zunanjim predmetom in prav tako zagotovljjen večji mir.', 4, 2, 7, 200, 1990, 'Cankarjev trg', 1);
 
 -- --------------------------------------------------------
 
@@ -587,7 +588,8 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`ID`, `appartment_ID`, `user_ID`, `title`, `description`) VALUES
 (1, 1, 1, 'Test', 'Moj prvi komentar'),
-(2, 1, 9, 'Super apartma', 'Sem bival tu. Zelo zadovoljen.');
+(2, 1, 9, 'Super apartma', 'Sem bival tu. Zelo zadovoljen.'),
+(3, 4, 9, '100% priporočam', '100% priporočam družinam z otroki. Smo bivali tu. Hiša je odlično oghranjena. Okolica je mirna');
 
 -- --------------------------------------------------------
 
@@ -610,7 +612,8 @@ CREATE TABLE `images` (
 INSERT INTO `images` (`ID`, `appartment_ID`, `title`, `short_description`, `url`) VALUES
 (1, 3, 'Obalni apartma', 'Slika notranjosti apartmaja.', 'seaside-appartment.jpg'),
 (2, 2, 'Planinski apartma', 'Pogled v apartma in bližnje gore.', '40677.jpg'),
-(3, 1, 'Apartma', 'Testni pogled', 'inside-barcelona-apartments.jpg');
+(3, 1, 'Apartma', 'Testni pogled', 'inside-barcelona-apartments.jpg'),
+(4, 4, 'Predmestje hiša', 'Dvorišče in hiša.', '8d9f0b6eba677b00ab7a6e681d24a532.jpg');
 
 -- --------------------------------------------------------
 
@@ -654,7 +657,9 @@ CREATE TABLE `rentals` (
 --
 
 INSERT INTO `rentals` (`ID`, `appartment_ID`, `user_ID`, `start_date`, `end_date`, `passwrd`, `res_date`) VALUES
-(1, 3, 1, '2016-06-16', '2016-06-30', NULL, '2016-06-15');
+(1, 3, 1, '2016-06-16', '2016-06-30', NULL, '2016-06-15'),
+(2, 2, 9, '2016-06-17', '2016-06-19', NULL, '2016-06-16'),
+(3, 3, 9, '2016-06-24', '2016-06-26', NULL, '2016-06-16');
 
 -- --------------------------------------------------------
 
@@ -759,7 +764,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT tabele `appartments`
 --
 ALTER TABLE `appartments`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT tabele `categories`
 --
@@ -774,12 +779,12 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT tabele `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT tabele `images`
 --
 ALTER TABLE `images`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT tabele `locations`
 --
@@ -789,7 +794,7 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT tabele `rentals`
 --
 ALTER TABLE `rentals`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT tabele `users`
 --
