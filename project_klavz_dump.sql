@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Gostitelj: 127.0.0.1
--- Čas nastanka: 16. jun 2016 ob 13.35
+-- Čas nastanka: 21. jun 2016 ob 13.21
 -- Različica strežnika: 10.1.13-MariaDB
 -- Različica PHP: 7.0.6
 
@@ -589,7 +589,8 @@ CREATE TABLE `comments` (
 INSERT INTO `comments` (`ID`, `appartment_ID`, `user_ID`, `title`, `description`) VALUES
 (1, 1, 1, 'Test', 'Moj prvi komentar'),
 (2, 1, 9, 'Super apartma', 'Sem bival tu. Zelo zadovoljen.'),
-(3, 4, 9, '100% priporočam', '100% priporočam družinam z otroki. Smo bivali tu. Hiša je odlično oghranjena. Okolica je mirna');
+(3, 4, 9, '100% priporočam', '100% priporočam družinam z otroki. Smo bivali tu. Hiša je odlično oghranjena. Okolica je mirna'),
+(4, 2, 9, 'Lep', 'Apartma je lep');
 
 -- --------------------------------------------------------
 
@@ -659,7 +660,9 @@ CREATE TABLE `rentals` (
 INSERT INTO `rentals` (`ID`, `appartment_ID`, `user_ID`, `start_date`, `end_date`, `passwrd`, `res_date`) VALUES
 (1, 3, 1, '2016-06-16', '2016-06-30', NULL, '2016-06-15'),
 (2, 2, 9, '2016-06-17', '2016-06-19', NULL, '2016-06-16'),
-(3, 3, 9, '2016-06-24', '2016-06-26', NULL, '2016-06-16');
+(3, 3, 9, '2016-06-24', '2016-06-26', NULL, '2016-06-16'),
+(4, 2, 1, '2016-06-30', '2016-07-06', NULL, '2016-06-21'),
+(5, 2, 9, '2016-06-29', '2016-07-06', NULL, '2016-06-21');
 
 -- --------------------------------------------------------
 
@@ -779,7 +782,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT tabele `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT tabele `images`
 --
@@ -794,7 +797,7 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT tabele `rentals`
 --
 ALTER TABLE `rentals`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT tabele `users`
 --
