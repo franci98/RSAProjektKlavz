@@ -18,6 +18,9 @@ and open the template in the editor.
         <link type="text/css" rel="stylesheet" href="css/background_style.css" />
         <link href='css/index_style.css' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="js/head.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     
     <body>
@@ -54,7 +57,7 @@ and open the template in the editor.
                           FROM categories;";
                 $result = mysqli_query($link, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<li><a href=products.php?category_id="'.$row['ID'].'">'.$row['title'].'</a></li>';
+                    echo '<li class="sidebar_cat" data-toggle="tooltip" data-id="'.$row['ID'].'" title="'.$row['description'].'" ><a href=products.php?category_id="'.$row['ID'].'">'.$row['title'].'</a></li>';
                 }
             ?>
         </ul> 
@@ -69,7 +72,7 @@ and open the template in the editor.
                           FROM locations;";
                 $result = mysqli_query($link, $query);
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<li><a href=products.php?location_id="'.$row['ID'].'">'.$row['title'].'</a></li>';
+                    echo '<li class="sidebar_cat" data-toggle="tooltip" data-id="'.$row['ID'].'" title="'.$row['description'].'" ><a href=products.php?category_id="'.$row['ID'].'">'.$row['title'].'</a></li>';
                 }
             ?>
         </ul> 

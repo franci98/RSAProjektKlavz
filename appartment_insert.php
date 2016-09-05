@@ -20,8 +20,12 @@ if(isset($_POST['wi-fi']))
 else 
     $wifi_available = 0;
 
-$query = "INSERT INTO appartments(user_ID, city_ID, location_ID, category_ID, title, description, bedrooms, bathrooms, persons, ppd, year_made, address, wifi_available)
-                           VALUES($user_id, $city_id, $location_id, $category_id, '$title', '$description',$bedrooms,$bathrooms, $persons, $ppd, $year_made, '$address', $wifi_available);";
+$query = sprintf("INSERT INTO appartments(user_ID, city_ID, location_ID, category_ID, title, description, bedrooms, bathrooms, persons, ppd, year_made, address, wifi_available)
+                           VALUES($user_id, $city_id, $location_id, $category_id, '%s', '%s',$bedrooms,$bathrooms, $persons, $ppd, $year_made, '%s', $wifi_available);",
+        mysqli_real_escape_string($link ,$title),
+        mysqli_real_escape_string($link ,$description),
+        mysqli_real_escape_string($link ,$address)
+        );
 $result = mysqli_query($link, $query);
 
 

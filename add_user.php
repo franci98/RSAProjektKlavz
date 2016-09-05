@@ -1,16 +1,22 @@
 <?php
 include_once 'connection.php';
 
-echo $first_name = $_POST['first_name'];
-echo $last_name = $_POST['last_name'];
-echo $username = $_POST['username'];
-echo $passwrd = sha1($_POST['passwrd']);
-echo $email = $_POST['email'];
-echo $telephone = $_POST['telephone'];
-echo $reg_date= date('Y-m-d');
+$first_name = $_POST['first_name'];
+$last_name = $_POST['last_name'];
+$username = $_POST['username'];
+$passwrd = sha1($_POST['passwrd']);
+$email = $_POST['email'];
+$telephone = $_POST['telephone'];
+$reg_date= date('Y-m-d');
 
-$query = "INSERT INTO users (username, first_name, last_name, passwrd, reg_date, telephone, email)
-        VALUES ('$username','$first_name','$last_name','$passwrd','$reg_date','$telephone','$email');";
+$query = sprintf("INSERT INTO users (username, first_name, last_name, passwrd, reg_date, telephone, email)
+        VALUES ('%s','%s','%s','$passwrd','$reg_date','%s','%s');",
+        mysqli_real_escape_string($link, $username),
+        mysqli_real_escape_string($link, $first_name),
+        mysqli_real_escape_string($link, $last_name),
+        mysqli_real_escape_string($link, $telephone),
+        mysqli_real_escape_string($link, $email)
+        );
 $result = mysqli_query($link, $query);
 
 session_start();

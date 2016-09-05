@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
             $result2 = mysqli_query($link, $query);
             while ($row2 = mysqli_fetch_array($result2)) {
             
-            echo '<img src="images/'.$row2['url'].'" alt="'.$row2['title'].'"';
+            echo '<img src="images/'.$row2['url'].'" alt="'.$row2['title'].'">';
             }
             if (isset($_SESSION['ID'])){
             if($_SESSION['ID']==$row['user_ID']){
