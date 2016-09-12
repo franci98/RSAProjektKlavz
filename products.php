@@ -20,12 +20,7 @@ include_once 'header.php';
         while ($row = mysqli_fetch_array($result)) {
             ?>
     <div class="product_div">
-        <div class="product_info_div">
-            <h3><a href="appartment.php?id=<?php echo $row['ID']; ?>"><?php echo $row['title']; ?></a></h3>
-            <p>Število oseb: <?php echo $row['persons']; ?></p>
-            <p><?php echo $row['description']; ?></p>
-        </div>
-        <div class="col-xs-6 col-md-3 thumbnail">
+        <div class="image_div">
             
                 <?php
                 $query = "SELECT *
@@ -33,10 +28,16 @@ include_once 'header.php';
             $result2 = mysqli_query($link, $query);
             while ($row2 = mysqli_fetch_array($result2)) {
             
-            echo '<img src="images/'.$row2['url'].'" alt="'.$row2['title'].'">';
+            echo '<img src="images/'.$row2['url'].'" alt="'.$row2['title'].'" witdh="250px" height="180px">';
             }
                 ?>
         </div>
+        <div class="product_info_div">
+            <h3><a href="appartment.php?id=<?php echo $row['ID']; ?>"><?php echo $row['title']; ?></a></h3>
+            <p>Število oseb: <?php echo $row['persons']; ?></p>
+            <p><?php echo $row['description']; ?></p>
+        </div>
+        
     </div>
     <?php
         }

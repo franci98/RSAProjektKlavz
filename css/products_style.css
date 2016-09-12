@@ -20,3 +20,14 @@
     font-size: 150%;
     margin: 2%;
 }
+
+.image_div{
+    height: 180px; 
+    width: 250px; 
+    overflow: hidden;
+    float:left;
+}
+img{
+    border: white 3pt solid;
+    border-radius: 5px;
+}
