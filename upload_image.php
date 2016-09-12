@@ -9,10 +9,10 @@ $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 $imageFileType = strtolower($imageFileType);
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+if(isset($_POST["submit"]) && isset($_FILES['fileToUpload'])) { 
+    $check = true;
     if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+        echo "File is an image ";
         $uploadOk = 1;
     } else {
         echo "File is not an image.";
@@ -40,17 +40,6 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-    //DELETING OLD FILE
-    $query = "SELECT url FROM images WHERE appartment_ID='".$_POST['appartment_id']."' ";
-    $result = mysqli_query($link, $query);
-    $image_row = mysqli_fetch_array($result);
-    $old_file = $target_dir . $image_row["url"];
-    unlink($old_file);
-    
-    $query = "DELETE FROM images WHERE appartment_ID='".$_POST['appartment_id']."' ";
-    $result = mysqli_query($link, $query);
-    
-    
     //ADDING NEW FILE
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
