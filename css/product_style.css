@@ -12,6 +12,7 @@
 
 #desc{
     background-color: #66ff66;
+    font-size: 16pt;
 }
 
 img{
@@ -20,8 +21,9 @@ img{
 hr{
     color:#00c56f;
 }
-ul li{
+#data ul li{
     font-weight: bold;
+    font-size: 17pt;
 }
 .comment{
     margin: 0;
